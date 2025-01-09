@@ -133,29 +133,138 @@ h1, h2, h3 {
 }
 
 /* Testimonials */
+/* Testimonials */
 .testimonials {
     padding: 50px 20px;
     background: #f4f4f9;
+    text-align: center;
+    position: relative;
 }
 
 .testimonials h2 {
-    text-align: center;
-    margin-bottom: 20px;
     font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px;
 }
 
-.testimonial-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+/* Testimonial Carousel */
+/* Testimonials Section */
+.testimonials {
+    padding: 50px 20px;
+    background: #f4f4f9;
+    text-align: center;
+    position: relative;
 }
 
-blockquote {
-    background: white;
+.testimonials h2 {
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 20px;
+}
+
+/* Testimonial Carousel */
+.testimonial-carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.testimonial {
+    display: none;
     padding: 20px;
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px;
+    background: white;
     font-style: italic;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial.active {
+    display: block;
+    position: relative;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.stars {
+    margin-top: 15px;
+    font-size: 25px;
+    color: gold;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+/* Controls */
+.testimonial-controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    pointer-events: none; /* Ensures only the buttons themselves can be clicked */
+}
+
+.arrow {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 60px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    cursor: pointer;
+    pointer-events: all; /* Re-enables clicking for the button area */
+    transition: background-color 0.3s ease;
+}
+
+.arrow:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.arrow::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: solid white;
+    border-width: 0 5px 5px 0;
+    transform: rotate(45deg);
+}
+
+#prev::before {
+    transform: rotate(135deg);
+}
+
+#next::before {
+    transform: rotate(-45deg);
+}
+
+#prev {
+    border-radius: 0 10px 10px 0;
+}
+
+#next {
+    border-radius: 10px 0 0 10px;
 }
 
 /* Contact */
